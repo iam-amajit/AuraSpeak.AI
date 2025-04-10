@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EchoMate - Your Voice Assistant</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-image: url("https://images.unsplash.com/photo-1493612276216-ee3925520721");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 1px 1px 4px #000;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"] {
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        button {
+            background: #1fa2ff;
+            background: linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb);
+            border: none;
+            color: #000;
+            font-size: 1.1rem;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .output {
+            margin-top: 25px;
+            font-size: 1.2rem;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            min-height: 50px;
+        }
+
+        .note {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ AuraSpeak ✨</h1>
+        <form method="POST">
+            <input type="text" name="command" placeholder="Type your command or press Enter..." autocomplete="off">
+            <button type="submit">Speak / Send</button>
+        </form>
+        <div class="output">
+            {% if response %}
+                {{ response }}
+            {% else %}
+                Ask me anything! (e.g., “Play Despacito”, “What's the weather in Paris?”, “Tell me a joke”)
+            {% endif %}
+        </div>
+        <div class="note">
+            Voice input will start automatically if you don’t type anything.
+        </div>
+    </div>
+</body>
+</html>
